@@ -50,6 +50,7 @@ FFT(std::vector<cmplx> a, cmplx omega)
         a_even[i] = a[2*i];
         a_odd[i] = a[2*i+1];
     }
+    // Handling the reduction property
     std::vector<cmplx> y_even = FFT(a_even, omega*omega);
     std::vector<cmplx> y_odd = FFT(a_odd, omega*omega);
 
@@ -57,7 +58,7 @@ FFT(std::vector<cmplx> a, cmplx omega)
     cmplx x = 1;
     for(int i = 0; i < len_half; ++i){
         y[i] = y_even[i] + x*y_odd[i];
-        y[i + len_half] = y_even[i] - x*y_odd[i];
+        y[i + len_half] = y_even[i] - x*y_odd[i]; // The reflective property
         x *= omega;
     }
     return y;
