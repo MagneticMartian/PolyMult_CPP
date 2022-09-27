@@ -4,7 +4,26 @@
 #include <vector>
 #include <cmath>
 using namespace std::complex_literals;
-
+/*
+ * Polynomial multiplication done the naive way is a O(n^2) time procedure.
+ * However, by introducing the FFT which is a divide and conqure algorithm
+ * we can change this into a O(nlog n) time algorithm. This is achived by
+ * using the DFT with primitive nth roots of unity. By doing so we change
+ * the DFT from O(n^2) to O(nlog n), thus giving the FFT.
+ *
+ * The inputs of the PolyMult function are two 2n degree padded polynomials.
+ * They need to be padded, due to the fact that multiplying two polynomials
+ * of degree n-1 will result in one polynomial of degree 2n-2. Further more
+ * the padding is there to ensure that 2n is a power of 2. Thus, n is also a
+ * power of 2.
+ * 
+ * In the particular implementation bellow, we use the complex roots of unity.
+ * These are used for two properties:
+ *     1. Reduction Property
+ *     2. Reflection Property
+ * These two properties allow us to take advantage of the divide and conqure
+ * nature of the FFT.
+ */
 template<typename T>
 std::ostream& operator << (std::ostream& os, std::vector<T> val)
 {
