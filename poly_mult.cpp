@@ -58,7 +58,7 @@ FFT(std::vector<cmplx> a, cmplx omega)
     cmplx x = 1;
     for(int i = 0; i < len_half; ++i){
         y[i] = y_even[i] + x*y_odd[i];
-        y[i + len_half] = y_even[i] - x*y_odd[i]; // The reflective property
+        y[i + len_half] = y_even[i] - x*y_odd[i]; // The reflection property
         x *= omega;
     }
     return y;
