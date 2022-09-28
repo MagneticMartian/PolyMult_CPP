@@ -1,6 +1,7 @@
 #include <iostream>
 #include <numeric>
 #include <complex>
+#include <algorithm>
 #include <vector>
 #include <cmath>
 using namespace std::complex_literals;
@@ -78,10 +79,12 @@ poly_mult(std::vector<cmplx> a, std::vector<cmplx> b)
     for(int i = 0; i < n; ++i)
         c[i] = p[i]*q[i];
     std::vector<cmplx> mult = FFT(c, one/omega);
-    std::vector<cmplx> m(mult.size());
-    for(int i = 0; i < m.size(); ++i)
-        m[i] = mult[i]/len;
-    return m;
+    auto f = [len](cmplx m){return m/len;};
+    std::transform(mult.begin(),
+                   mult.end(),
+                   mult.begin(),
+                   f);
+    return mult;
 }
 
 int 
