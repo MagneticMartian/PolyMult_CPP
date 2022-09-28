@@ -76,14 +76,16 @@ poly_mult(std::vector<cmplx> a, std::vector<cmplx> b)
     std::vector<cmplx> q = FFT(b, omega);
 
     std::vector<cmplx> c(n);
-    for(int i = 0; i < n; ++i)
-        c[i] = p[i]*q[i];
+    std::transform(p.begin(), // c[i] = p[i]*q[i]
+                   p.end(),
+                   q.begin(),
+                   c.begin(),
+                   std::multiplies<cmplx>());
     std::vector<cmplx> mult = FFT(c, one/omega);
-    auto f = [len](cmplx m){return m/len;};
-    std::transform(mult.begin(),
+    std::transform(mult.begin(), // mult[i] = mult[i]/len
                    mult.end(),
                    mult.begin(),
-                   f);
+                   [len](cmplx m){return m/len;});
     return mult;
 }
 
