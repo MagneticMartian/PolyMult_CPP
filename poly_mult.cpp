@@ -4,8 +4,10 @@
 #include <functional>
 #include <algorithm>
 #include <vector>
+#include <numbers>
 #include <cmath>
 using namespace std::complex_literals;
+using namespace std::numbers;
 /*
  * Polynomial multiplication done the naive way is a O(n^2) time procedure.
  * However, by introducing the FFT which is a divide and conqure algorithm
@@ -36,8 +38,7 @@ std::ostream& operator << (std::ostream& os, std::vector<T> val)
 
 typedef std::complex<double> cmplx;
 const cmplx two = 2j;
-const cmplx one = 1;
-const cmplx pi = std::acos(-1.0); 
+const cmplx one = 1; 
 
 std::vector<cmplx> 
 FFT(std::vector<cmplx> a, cmplx omega)
