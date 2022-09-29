@@ -17,3 +17,8 @@ Further the way that this method works is that there needs to be 2 polynomials, 
 ```
 a = [a_0, a_1, ..., a_(n-1), 0, 0, ..., 0]
 b = [b_0, b_1, ..., b_(m-1), 0, 0, ..., 0]
+# gcc options
+Example compilation:
+```
+g++ --std=c++20 -fext-numeric-literals poly_mult.cpp
+```
