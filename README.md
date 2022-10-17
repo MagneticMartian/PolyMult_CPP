@@ -31,4 +31,4 @@ Example compilation:
 g++ --std=c++20 -fext-numeric-literals int_mult.cpp
 ```
 # Bugs
-This is currently giving the wrong answers for results that are in the long domain.
+(PATCH) This is currently giving the wrong answers for results that are in the long domain. This is due to something going on inside of accumulate.
