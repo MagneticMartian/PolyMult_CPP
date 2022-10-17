@@ -62,10 +62,7 @@ T int_mult(T a, T b)
             });
     for(T i = 0; i < res1.size(); ++i)
         res1[i] = res1[i]*(T)pow(10,i);
-    //return std::accumulate(res1.begin(),res1.end(),0);
-    T tot = 0;
-    for(auto i : res1) tot += i;
-    return tot;
+    return std::accumulate(res1.begin(),res1.end(),(T)0);
 }
 int main()
 {
