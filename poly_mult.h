@@ -90,12 +90,3 @@ poly_mult(std::vector<cmplx> a, std::vector<cmplx> b)
                    [len](cmplx m){return m/len;});
     return mult;
 }
-
-int 
-main()
-{
-    std::vector<cmplx> a = {1,2,3,4,0,0,0,0};
-    std::vector<cmplx> b = {-1,0,2,1,0,0,0,0};
-
-    std::cout << poly_mult(a,b) << '\n';
-}
