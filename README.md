@@ -1,5 +1,8 @@
 # PolyMult_CPP
+## poly_mult.h
 This is a C++ reimplementation of my older PolyMult Class that I wrote in Python.
+## int_mult.cpp
+This is a C++ reimplementation of my older IntMult Class that I wrote in Python.
 # restating what has been said before.
 Recursive FFT polynomial multiplication.
 
@@ -18,6 +21,10 @@ Further the way that this method works is that there needs to be 2 polynomials, 
 a = [a_0, a_1, ..., a_(n-1), 0, 0, ..., 0]
 b = [b_0, b_1, ..., b_(m-1), 0, 0, ..., 0]
 ```
+### Conversion to integer multiplication
+The func int_mult takes two integers of arbitrary size (for all practical purposes) and turns them into polynomials and then multiplies them using the poly_mult function.
+
+In other words this is doing integer multiplication with the Fast Fourier Transform.
 # gcc options
 Example compilation:
 ```
