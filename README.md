@@ -28,5 +28,5 @@ In other words this is doing integer multiplication with the Fast Fourier Transf
 # gcc options
 Example compilation:
 ```
-g++ --std=c++20 -fext-numeric-literals poly_mult.cpp
+g++ --std=c++20 -fext-numeric-literals int_mult.cpp
 ```
