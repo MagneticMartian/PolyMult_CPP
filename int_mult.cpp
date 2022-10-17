@@ -69,6 +69,6 @@ T int_mult(T a, T b)
 }
 int main()
 {
-    int a = 15, b = 15;
+    uint64_t a = 350424, b = 5348742;
     std::cout << int_mult(a,b) << '\n';
 }
